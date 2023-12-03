@@ -1,6 +1,6 @@
-import LoginPage from '../../pageobjects/LoginPage';
-import NavPage from '../../pageobjects/NavPage';
-import ProfilePage from '../../pageobjects/ProfilePage';
+import LoginPage from '../../../pageobjects/LoginPage';
+import NavPage from '../../../pageobjects/NavPage';
+import ProfilePage from '../../../pageobjects/ProfilePage';
 
 describe('As a tester i want to test this profile page', () => {
     beforeEach(() => {

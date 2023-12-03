@@ -15,6 +15,10 @@ class NavPage{
         closeBurger : () => cy.get('#drawer-navigation > .text-gray-400'),
     }
 
+    static getNavDetails(){
+        return this.elements.navDetails();
+    }
+
     static clickNavDashboard() {
         return this.elements.navDashboard().click();
     }

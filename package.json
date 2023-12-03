@@ -1,6 +1,31 @@
 {
+  "name": "cypressqce",
+  "version": "1.0.0",
+  "description": "Quick Count Election Functional Test With Cypress and Cucumber",
+  "main": "index.js",
+  "scripts": {
+    "verify": "cypress run && node cucumber-html-report.js"
+  },
+  "keywords": [
+    "Cypress",
+    "BDD",
+    "Cucumber"
+  ],
+  "author": "arifldhewo",
+  "license": "ISC",
   "devDependencies": {
     "cypress": "^13.6.0",
-    "cypress-mochawesome-reporter": "^3.7.0"
+    "cypress-cucumber-preprocessor": "^4.3.1",
+    "multiple-cucumber-html-reporter": "^3.5.0"
+  },
+  "cypress-cucumber-preprocessor": {
+    "nonGlobalStepDefinitions": true,
+    "stepDefinitions": "cypress/e2e/qce",
+    "cucumberJson": {
+      "generate": true,
+      "outputFolder": "cypress/reports/json",
+      "filePrefix": "",
+      "fileSuffix": ".cucumber"
+    }
   }
 }

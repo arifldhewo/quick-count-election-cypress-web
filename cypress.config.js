@@ -1,13 +1,16 @@
+const cucumber = require('cypress-cucumber-preprocessor').default;
 const { defineConfig } = require("cypress");
 
 module.exports = defineConfig({
-  reporter: 'cypress-mochawesome-reporter',
   e2e: {
     setupNodeEvents(on, config) {
-      require('cypress-mochawesome-reporter/plugin')(on);
+      on('file:preprocessor', cucumber());
     },
+    specPattern: 'cypress/e2e/qce/features/*.feature'
   },
+
   env: {
     baseUrl: 'http://127.0.0.1:8000'
   }
+
 });
