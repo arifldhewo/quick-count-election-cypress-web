@@ -7,17 +7,37 @@ class ProfilePage{
         inputNewPass        : () => cy.get('#password'),
         inputConfirmPass    : () => cy.get('#confirm_password'),
         buttonSavePass      : () => cy.get(':nth-child(2) > .max-w-xl > section > .mt-6 > .flex > .inline-flex'),
-        textSaved           : () => cy.get('.flex > .text-sm')
+        textSaved           : () => cy.contains('Saved.')
+    }
+
+    static getInputName() {
+        return this.elements.inputName();
+    }
+
+    static getInputEmail() {
+        return this.elements.inputEmail();
+    }
+
+    static getInputCurrentPass() {
+        return this.elements.inputCurrentPass();
+    }
+
+    static getInputNewPass() {
+        this.elements.inputNewPass();
+    }
+
+    static getInputConfirmPass() {
+        this.elements.inputConfirmPass();
     }
 
     static fillName(name) {
-        this.elements.inputName().clear();
-        this.elements.inputName().type(name);
+        const inputName = this.elements.inputName();
+        return name ? inputName.clear().type(name) : inputName.clear();
     }
 
     static fillEmail(email) {
-        this.elements.inputEmail().clear();
-        this.elements.inputEmail().type(email);
+        const inputEmail = this.elements.inputEmail();
+        return email ? inputEmail.clear().type(email) : inputEmail.clear();
     }
 
     static clickButtonSaveProfile() {
@@ -25,15 +45,18 @@ class ProfilePage{
     }
 
     static fillCurrentPass(currentPass) {
-        return this.elements.inputCurrentPass().type(currentPass)
+        const inputCurrentPass = this.elements.inputCurrentPass();
+        return currentPass ? inputCurrentPass.clear().type(currentPass) : inputCurrentPass.clear();
     }
 
-    static fillCurrentPass(NewPass) {
-        return this.elements.inputCurrentPass().type(NewPass)
+    static fillNewPass(newPass) {
+        const inputNewPass = this.elements.inputCurrentPass();
+        return newPass ? inputNewPass.clear().type(newPass) : inputNewPass.clear();
     }
 
-    static fillCurrentPass(confirmPass) {
-        return this.elements.inputCurrentPass().type(confirmPass)
+    static fillConfirmPass(confirmPass) {
+        const inputConfirmPass = this.elements.inputConfirmPass();
+        return confirmPass ? inputConfirmPass.clear().type(confirmPass) : inputConfirmPass.clear();
     }
 
     static clickButtonSavePass() {
