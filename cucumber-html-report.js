@@ -5,8 +5,8 @@ report.generate({
     reportPath: "cypress/reports/html",
     metadata: {
         browser: {
-        name: "chrome",
-        version: "XX",
+        name: "Chrome",
+        version: "114",
         },
         device: "Local test machine",
         platform: {
