@@ -4,6 +4,23 @@ Feature: Login
     As a user i want to login to this page
 
         @Negative
+        Scenario: Login with email is empty
+            Given user open the website
+            When user enter my email with ""
+            And user enter my password with "password"
+            And user click login button
+            Then system return error message in field email
+
+        @Negative
+        Scenario: Login with password is empty
+            Given user open the website
+            When user enter my email with "superadmin@gmail.com"
+            And user enter my password with ""
+            And user click checkbox remember me
+            And user click login button
+            Then system return error message in field password
+
+        @Negative
         Scenario: Login with email doesn't exists
             Given user open the website
             When user enter my email with "superadmin@gmail.co.id"

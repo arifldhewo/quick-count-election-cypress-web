@@ -14,14 +14,30 @@ import NavPage from '../../../../pageobjects/NavPage';
         LoginPage.fillPass(pass);
     });
 
+    And('user click checkbox remember me', () => {
+        LoginPage.clickRememberMe();
+    });
+
     And('user click login button', () => {
         LoginPage.clickButtonLogin();
     });
 
     Then('user already inside the dashboard page', () => {
         NavPage.getNavDetails().should('be.visible');
-    })
+    });
 
-    Then ('system return error message', () => {
+    Then('system return error message', () => {
         LoginPage.getTextError().should('be.visible');
     });
+
+    Then('system return error message in field email', () => {
+        LoginPage.getInputEmail().then($input => {
+            expect($input[0].validationMessage).to.eq('Please fill out this field.')
+        });
+    });
+
+    Then('system return error message in field password', () => {
+        LoginPage.getInputPass().then($input => {
+            expect($input[0].validationMessage).to.eq('Please fill out this field.');
+        })
+    })
