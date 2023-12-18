@@ -3,10 +3,12 @@ Feature: Register
 
     As a user i want to register new account
 
+    Background: Open Website
+        Given user open the website
+        When user click register link
+
         @Negative
         Scenario: Register with name field is empty
-            Given user open the website
-            When user click register link
             And user fill their name field with ""
             And user fill their email field with "audi@qceapp.com"
             And user fill their mobile field number with "081111111111"
@@ -17,8 +19,6 @@ Feature: Register
 
         @Negative
         Scenario: Register with email field is empty
-            Given user open the website
-            When user click register link
             And user fill their name field with "Audi"
             And user fill their email field with ""
             And user fill their mobile field number with "081111111111"
@@ -29,8 +29,6 @@ Feature: Register
 
         @Negative
         Scenario: Register with telp field is empty
-            Given user open the website
-            When user click register link
             And user fill their name field with "Audi"
             And user fill their email field with "audi@qceapp.com"
             And user fill their mobile field number with ""
@@ -41,8 +39,6 @@ Feature: Register
         
         @Negative
         Scenario: Register with password field is empty
-            Given user open the website
-            When user click register link
             And user fill their name field with "Audi"
             And user fill their email field with "audi@qceapp.com"
             And user fill their mobile field number with "081111111111"
@@ -53,8 +49,6 @@ Feature: Register
         
         @Negative
         Scenario: Register with confirm password field is empty
-            Given user open the website
-            When user click register link
             And user fill their name field with "Audi"
             And user fill their email field with "audi@qceapp.com"
             And user fill their mobile field number with "081111111111"
@@ -65,8 +59,6 @@ Feature: Register
 
         @Negative
         Scenario: Register with email and mobile phone already exists
-            Given user open the website
-            When user click register link
             And user fill their name field with "Audi"
             And user fill their email field with "superadmin@gmail.com"
             And user fill their mobile field number with "081111111111"
@@ -78,11 +70,9 @@ Feature: Register
 
         @Positive
         Scenario: Register with valid data
-            Given user open the website
-            When user click register link
             And user fill their name field with "Audi"
-            And user fill their email field with "audi@qceapp.com"
-            And user fill their mobile field number with "0812123123"
+            And user fill their email field with auto generate data
+            And user fill their telp field with auto generate data
             When user fill their password field with "password"
             And user fill their confirm password field with "password"
             And user click register button

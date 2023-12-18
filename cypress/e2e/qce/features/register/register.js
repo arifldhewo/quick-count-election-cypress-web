@@ -1,73 +1,82 @@
-import { Given, When, Then, And } from "cypress-cucumber-preprocessor/steps";
+import { When, Then, And } from "cypress-cucumber-preprocessor/steps";
 import LoginPage from "../../../../pageobjects/LoginPage";
 import RegisterPage from "../../../../pageobjects/RegisterPage";
+const { faker } = require('@faker-js/faker');
 
     When('user click register link', () => {
-        LoginPage.clickLinkRegister();
+        LoginPage.elements.linkRegister().click();
     });
 
     When('user fill their name field with {string}', (name) => {
-        RegisterPage.fillName(name);
+        name ? RegisterPage.elements.inputName().type(name) : '';
     })
 
     And('user fill their email field with {string}', (email) => {
-        RegisterPage.fillEmail(email);
+        email ? RegisterPage.elements.inputEmail().type(email) : '';
     });
 
     And('user fill their mobile field number with {string}', (telp) => {
-        RegisterPage.fillTelp(telp);
+        telp ? RegisterPage.elements.inputTelp().type(telp) : '';
     });
 
     And('user fill their password field with {string}', (password) => {
-        RegisterPage.fillPass(password);
+        password ? RegisterPage.elements.inputPass().type(password) : '';
     })
 
     And('user fill their confirm password field with {string}', (confirm) => {
-        RegisterPage.fillConfirmPass(confirm);
+        confirm ? RegisterPage.elements.inputConfirm().type(confirm) : '';
     }); 
 
     And('user click register button', () => {
-        RegisterPage.clickButtonRegister();
+        RegisterPage.elements.buttonRegister().click();
+    });
+
+    And('user fill their email field with auto generate data', () => {
+        RegisterPage.elements.inputEmail().type(faker.internet.email());
+    });
+
+    And('user fill their telp field with auto generate data', () => {
+        RegisterPage.elements.inputTelp().type(faker.helpers.fromRegExp('08[0-9]{10}'));
     });
 
     Then('user get redirected to login page', () => {
-        LoginPage.getRememberMe().should('be.visible');
+        LoginPage.elements.checkRememberMe().should('be.visible');
     });
 
     Then('system return error field name is required', () => {
-        RegisterPage.getInputName().then(($input) => {
+        RegisterPage.elements.inputName().then( $input => {
             expect($input[0].validationMessage).to.eq('Please fill out this field.')
         });
     })
 
     Then('system return error field email is required', () => {
-        RegisterPage.getInputEmail().then(($input) => {
+        RegisterPage.elements.inputEmail().then( $input => {
             expect($input[0].validationMessage).to.eq('Please fill out this field.')
         });
     })
 
     Then('system return error field telp is required', () => {
-        RegisterPage.getInputTelp().then(($input) => {
+        RegisterPage.elements.inputTelp().then( $input => {
             expect($input[0].validationMessage).to.eq('Please fill out this field.')
         });
     })
 
     Then('system return error field password is required', () => {
-        RegisterPage.getInputPass().then(($input) => {
+        RegisterPage.elements.inputPass().then( $input => {
             expect($input[0].validationMessage).to.eq('Please fill out this field.')
         });
     })
 
     Then('system return error field confirm password is required', () => {
-        RegisterPage.getInputConfirm().then(($input) => {
+        RegisterPage.elements.inputConfirm().then( $input => {
             expect($input[0].validationMessage).to.eq('Please fill out this field.')
         });
     })
 
     Then('system return error field email with the email is already taken', () => {
-        RegisterPage.getErrorEmail().should('be.visible');
+        RegisterPage.elements.errorEmail().should('be.visible');
     });
 
     Then('system return error field tep with the telp is already been taken', () => {
-        RegisterPage.getErrorTelp().should('be.visible');
+        RegisterPage.elements.errorTelp().should('be.visible');
     });

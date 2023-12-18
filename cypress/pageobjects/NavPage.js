@@ -14,62 +14,6 @@ class NavPage{
         dropUser    : () => cy.get(`#dropdown-example > [href="${Cypress.env('baseUrl')}/admin/master-user"]`),
         closeBurger : () => cy.get('#drawer-navigation > .text-gray-400'),
     }
-
-    static getNavDetails(){
-        return this.elements.navDetails();
-    }
-
-    static clickNavDashboard() {
-        return this.elements.navDashboard().click();
-    }
-
-    static clickNavDetails() {
-        return this.elements.navDetails().click();
-    }
-
-    static clickDropProfile() {
-        return this.elements.dropProfile().click();
-    }
-
-    static clickItemProfile() {
-        return this.elements.liProfile().click();
-    }
-
-    static clickItemLogout() {
-        return this.elements.liLogout().click();
-    }
-
-    static clickBurgerMenu() {
-        return this.elements.burgerMenu().click();
-    }
-
-    static clickDropMasterMenu() {
-        return this.elements.dropMaster().click();
-    }
-
-    static clickMasterCamat() {
-        return this.elements.dropCamat().click();
-    }
-
-    static clickMasterLurah() {
-        return this.elements.dropLurah().click();
-    }
-
-    static clickMasterPartai() {
-        return this.elements.dropPartai().click();
-    }
-
-    static clickMasterCaleg() {
-        return this.elements.dropCaleg().click();
-    }
-
-    static clickMasterUser() {
-        return this.elements.dropUser().click();
-    }
-
-    static clickCloseBurger() {
-        return this.elements.closeBurger().click();
-    }
 }
 
 export default NavPage;

@@ -16,7 +16,6 @@ Feature: Login
             Given user open the website
             When user enter my email with "superadmin@gmail.com"
             And user enter my password with ""
-            And user click checkbox remember me
             And user click login button
             Then system return error message in field password
 
