@@ -1,8 +1,8 @@
-Feature: AddDataLengkap
+Feature: AddDataLengkapAdmin
 
-    As a user i want to add detail data from each tps
+    As an admin i want to add detail data from each tps
 
-    Background: User already login and user already on add data lengkap page
+    Background: Admin already login and admin already on add data lengkap page
         Given user open the website
         When user enter my email with "superadmin@gmail.com"
         And user enter my password with "password"
@@ -11,6 +11,6 @@ Feature: AddDataLengkap
         And user click add button on details page
 
 
-    Scenario: User adding all field with valid data
+    Scenario: Admin adding all field with valid data
         When user filling details data with "dataLengkapValid"
         Then user get success message contains Your data has been added successfully!
