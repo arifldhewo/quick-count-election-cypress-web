@@ -14,11 +14,16 @@ And('user click add button on details page', () => {
 
 When('user filling details data with {string}', (file) => {
     cy.fixture(file).then(dataLengkap => {
-        AddDataLengkapPage.elements.selectKecamatan().select(dataLengkap.kecamatan);
 
-        AddDataLengkapPage.elements.selectKelurahan().select(dataLengkap.kelurahan);
+        cy.loadCSV(dataLengkap).then(data => {
+            for(let i = 0; i < data.length; i++) {
+                AddDataLengkapPage.elements.selectKecamatan().select(data[i].kecamatan);
 
-        AddDataLengkapPage.elements.selectPartai().select(dataLengkap.partai);
+                AddDataLengkapPage.elements.selectKelurahan().select(data[i].kelurahan);
+
+                AddDataLengkapPage.elements.selectPartai().select(data[i].partai);
+            }
+        });
     });
 
     AddDataLengkapPage.elements.inputRW().type(faker.string.numeric(3));

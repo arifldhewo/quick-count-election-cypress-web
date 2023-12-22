@@ -1,5 +1,12 @@
-{
-    "kecamatan" : "Pesanggrahan",
-    "kelurahan" : "Petukangan Utara",
-    "partai" : "PDIP"
-}
+[
+    {
+        "kecamatan" : "Pesanggrahan",
+        "kelurahan" : "Petukangan Utara",
+        "partai" : "PDIP"
+    },
+    {
+        "kecamatan" : "Pesanggrahan",
+        "kelurahan" : "Petukangan Selatan",
+        "partai" : "PDIP"
+    }
+]

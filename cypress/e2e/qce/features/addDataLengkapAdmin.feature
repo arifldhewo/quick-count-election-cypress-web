@@ -12,5 +12,5 @@ Feature: AddDataLengkapAdmin
 
 
     Scenario: Admin adding all field with valid data
-        When user filling details data with "dataLengkapValid"
+        When user filling details data with "dataLengkap"
         Then user get success message contains Your data has been added successfully!
